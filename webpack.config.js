@@ -1,29 +1,40 @@
 const webpack = require('webpack');
 const nodeEnv = process.env.NODE_ENV || 'production';
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 module.exports = {
   devtool: 'source-map',
-  entry: {
-    filename: './app.js'
-  },
+  entry: ['./src/js/app.js', './src/scss/styles.scss'],
   output: {
     filename: 'static/js/main.js'
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ["es2015"]
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+              presets: ["es2015"]
+            }
+        },
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'eslint-loader'
+        },
+        {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract({
+                use: [{
+                    loader: 'css-loader',
+                    options: { minimize: true }
+                },{
+                    loader: 'sass-loader',
+                }]
+            })
         }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader"
-      }
     ]
   },
   plugins: [
@@ -38,6 +49,11 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
-    })
+    }),
+    new ExtractTextPlugin({ // define where to save the file
+      filename: 'static/css/styles.css',
+      allChunks: true
+    }),
   ]
 };
+

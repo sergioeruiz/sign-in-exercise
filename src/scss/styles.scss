@@ -1,0 +1,18 @@
+$bg: #cccccc;
+
+body {
+    background-color: $bg;
+
+    h1 {
+        color: red;
+    }
+
+    p {
+        color: blue;
+        font-size: 12px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
