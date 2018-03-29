@@ -10,7 +10,7 @@ module.exports = {
     filename: 'static/js/main.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -18,6 +18,11 @@ module.exports = {
         query: {
           presets: ["es2015"]
         }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
       }
     ]
   },
