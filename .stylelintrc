@@ -1,0 +1,39 @@
+{
+    "extends": "stylelint-config-concentric",
+    "plugins": [
+        "stylelint-declaration-use-variable",
+        "stylelint-selector-bem-pattern",
+        "stylelint-order"
+    ],
+    "rules":{
+        "sh-waqar/declaration-use-variable": ["color", "content", "font-size", "font-family",
+            "font-weight", "background", "background-color", "border-color"],
+        "plugin/selector-bem-pattern": {
+            "preset": "suit"
+        },
+        "order/order": [
+            "custom-properties",
+            "declarations"
+        ],
+        "string-quotes": "double",
+        "indentation": 4,
+        "number-leading-zero": "never",
+        "max-empty-lines": 3,
+        "max-nesting-depth": 3,
+        "at-rule-name-space-after": "always",
+        "number-no-trailing-zeros": true,
+        "no-extra-semicolons": true,
+        "function-name-case": null,
+        "selector-class-pattern": "^([a-z]{1,}(?:([\\-]{0,1}[a-z0-9])){0,})((?:(\\-\\-|\\_\\_)[a-z0-9]{1,}){0,1}(?:([\\-]{0,1}[a-z0-9])){0,})$",
+        "at-rule-whitelist": ["media", "color", "charset", "page",
+            "import", "keyframes", "function", "return", "if",
+            "for", "include", "mixin", "content"],
+        "block-opening-brace-space-before": "always",
+        "block-closing-brace-newline-after": "always",
+        "block-closing-brace-newline-before": "always",
+        "selector-list-comma-newline-after": "always",
+        "at-rule-empty-line-before": "always",
+        "comment-empty-line-before": "always",
+
+    }
+}
