@@ -1,14 +1,15 @@
 $bg: #cccccc;
+$font-color: #333;
 
 body {
     background-color: $bg;
 
     h1 {
-        color: red;
+        color: $font-color;
     }
 
     p {
-        color: blue;
+        color: $font-color;
         font-size: 12px;
 
         a {

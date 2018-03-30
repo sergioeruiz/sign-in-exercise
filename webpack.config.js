@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const nodeEnv = process.env.NODE_ENV || 'production';
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
-              presets: ["es2015"]
+              presets: ['es2015']
             }
         },
         {
@@ -50,6 +51,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
     }),
+    new StyleLintPlugin(),
     new ExtractTextPlugin({ // define where to save the file
       filename: 'static/css/styles.css',
       allChunks: true
