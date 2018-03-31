@@ -1,0 +1,17 @@
+body,
+input,
+button,
+select {
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: $bg;
+    margin: 0;
+    -webkit-text-size-adjust: none; // Fix a bug on iOs with font-sizes
+}
+
+* {
+    box-sizing: border-box;
+}

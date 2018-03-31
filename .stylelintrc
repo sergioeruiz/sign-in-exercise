@@ -15,6 +15,8 @@
             "custom-properties",
             "declarations"
         ],
+        "order/properties-alphabetical-order": true,
+        "order/properties-order": "ignore",
         "string-quotes": "double",
         "indentation": 4,
         "number-leading-zero": "never",
@@ -27,7 +29,7 @@
         "selector-class-pattern": "^([a-z]{1,}(?:([\\-]{0,1}[a-z0-9])){0,})((?:(\\-\\-|\\_\\_)[a-z0-9]{1,}){0,1}(?:([\\-]{0,1}[a-z0-9])){0,})$",
         "at-rule-whitelist": ["media", "color", "charset", "page",
             "import", "keyframes", "function", "return", "if",
-            "for", "include", "mixin", "content"],
+            "for", "include", "mixin", "content", "each"],
         "block-opening-brace-space-before": "always",
         "block-closing-brace-newline-after": "always",
         "block-closing-brace-newline-before": "always",

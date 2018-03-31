@@ -1,0 +1,27 @@
+.card {
+    background-color: $cardBg;
+    border-radius: $border-radius;
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem;
+
+    @include media-min("xs") {
+        padding: 1rem;
+    }
+
+    &__title {
+        flex: 1 1 100%;
+        margin: 1rem;
+    }
+
+    &__col {
+        flex: 1 1 280px;
+        margin: 1rem;
+    }
+
+    &__footer {
+        flex: 1 1 100%;
+        margin: .5rem 1rem;
+        text-align: right;
+    }
+}

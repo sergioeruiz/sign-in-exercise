@@ -1,0 +1,81 @@
+.form-el {
+    $p : &;
+
+    &__label {
+        display: block;
+        font-size: $font-size-8;
+        margin-bottom: .3rem;
+    }
+
+    &__input,
+    &__select {
+        border: 1px solid $bg_border;
+        border-radius: $border-radius;
+        color: $bg_txt;
+        display: block;
+        font-size: $font-size-6;
+        min-height: 34px;
+        padding: 0 .5em;
+        width: 100%;
+    }
+
+    &__error {
+        color: $negative_txt;
+        display: none;
+        font-size: $font-size-8;
+        font-weight: bold;
+    }
+
+    &--validate {
+        #{$p}__input:invalid {
+            border-color: $negative_txt;
+
+            + #{$p}__error {
+                display: block;
+            }
+        }
+    }
+
+    &__select-wrapper {
+        position: relative;
+        transition: all 300ms ease-in-out;
+
+        &::after {
+            border-color: $bg_txt;
+            border-style: solid;
+            border-width: 2px 2px 0 0;
+            content: "";
+            height: 9px;
+            pointer-events: none;
+            position: absolute;
+            right: 20px;
+            top: 45%;
+            transform: translateY(-50%) rotate(135deg);
+            width: 9px;
+        }
+    }
+
+    &__select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: $cardBg;
+        cursor: pointer;
+        outline: 0;
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        word-break: break-all;
+
+        &::-ms-expand {
+            display: none;
+        }
+
+        &:empty {
+            background: $bg;
+            cursor: not-allowed;
+        }
+    }
+}

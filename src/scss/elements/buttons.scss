@@ -1,0 +1,32 @@
+.btn {
+    background: $primary_bg;
+    border: 0;
+    border-radius: $border-radius;
+    box-shadow: 0 3px 0 0 darken($primary_bg, 25);
+    color: $primary_txt;
+    font-size: $font-size-6;
+    font-weight: bold;
+    padding: .5em 1.5em;
+    text-transform: uppercase;
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+        background: darken($primary_bg, 5);
+        box-shadow: 0 0 1px 0 darken($primary_bg, 25);
+        transform: translateY(2px);
+    }
+
+    &:active {
+        box-shadow: 0 0 0 0 darken($primary_bg, 25);
+        transform: translateY(3px);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+        background: $disabled_bg;
+        box-shadow: 0 0 1px 0 darken($disabled_bg, 5);
+        color: $disabled_txt;
+        cursor: not-allowed;
+        transform: translateY(2px);
+    }
+}

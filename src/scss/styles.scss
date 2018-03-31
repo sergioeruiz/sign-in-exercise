@@ -1,19 +1,19 @@
-$bg: #cccccc;
-$font-color: #333;
+@import "variables";
 
-body {
-    background-color: $bg;
+@import "helpers/reset";
 
-    h1 {
-        color: $font-color;
-    }
+@import "helpers/media-queries";
 
-    p {
-        color: $font-color;
-        font-size: 12px;
+@import "elements/main";
 
-        a {
-            text-decoration: none;
-        }
-    }
-}
+@import "elements/buttons";
+
+@import "elements/inputs";
+
+@import "elements/card";
+
+@import "elements/messages";
+
+@import "components/signup-form";
+
+@import "components/user-list";
