@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /\.js$/,
+            test: /\.(js|es6)$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
@@ -21,7 +21,7 @@ module.exports = {
             }
         },
         {
-            test: /\.js$/,
+            test: /\.(js|es6)$/,
             exclude: /node_modules/,
             loader: 'eslint-loader'
         },
