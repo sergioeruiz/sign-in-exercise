@@ -24,15 +24,16 @@
         display: none;
         font-size: $font-size-8;
         font-weight: bold;
+        margin-top: .35rem;
     }
 
-    &--validate {
-        #{$p}__input:invalid {
+    &--error {
+        #{$p}__input {
             border-color: $negative_txt;
+        }
 
-            + #{$p}__error {
-                display: block;
-            }
+        #{$p}__error {
+            display: block;
         }
     }
 

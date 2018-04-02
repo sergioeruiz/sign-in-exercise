@@ -3,4 +3,8 @@
     display: block;
     line-height: 1.4;
     padding: 1em;
+
+    &--hidden {
+        display: none;
+    }
 }
