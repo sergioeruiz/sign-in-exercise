@@ -7,13 +7,6 @@ export default class Input {
      * @constant
      * @type {string}
      */
-    static get ERROR_ITEM_STYLE() {
-        return 'ca-form__error-item';
-    }
-    /**
-     * @constant
-     * @type {string}
-     */
     static get FORM_GROUP_ERROR_CLASS() {
         return 'form-el--error';
     }
@@ -81,7 +74,7 @@ export default class Input {
      */
     validate() {
         if (
-            (this._inputElement.required || this._inputElement.getAttribute('pattern')) &&
+            (this.required || this._inputElement.getAttribute('pattern')) &&
             !this._inputElement.checkValidity()) {
             this._containerElement.classList.add(Input.FORM_GROUP_ERROR_CLASS);
             return false;
@@ -90,32 +83,8 @@ export default class Input {
     }
 
     /**
-     * Disable input
-     */
-    disable() {
-        this._inputElement.disabled = true;
-        this.unbindEvents();
-    }
-
-    /**
-     * Enable input
-     */
-    enable() {
-        this._inputElement.disabled = false;
-        this.bindEvents();
-    }
-
-    /**
      * Get/set data
      */
-    set data(data) {
-        this._inputElement.value = data;
-    }
-
-    get data() {
-        return this._inputElement.value;
-    }
-
     set selectList(data) {
         if (this._inputElement.tagName === 'SELECT') {
             this._inputElement.innerHTML = '';
@@ -139,12 +108,5 @@ export default class Input {
 
     get required() {
         return this._inputElement.required;
-    }
-
-    /**
-     * Get element
-     */
-    get element() {
-        return this._containerElement;
     }
 }
