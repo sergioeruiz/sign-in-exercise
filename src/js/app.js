@@ -1,4 +1,5 @@
-const armando = 'hola';
-const hola = 'mundo';
+import FormHandler from './formHandler.es6';
 
-console.log(armando);
+const form = new FormHandler();
+
+form.init();

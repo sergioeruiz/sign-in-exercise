@@ -11,27 +11,30 @@
         <section class="card">
             <h1 class="card__title">Register yourself</h1>
             <form class="card__col signup" name="signup">
-                <div class="signup__input form-el">
+                <div class="signup__input form-el js-form-el">
                     <label class="form-el__label">Name:</label>
-                    <input type="text" name="name" class="form-el__input" required />
-                    <span class="form-el__error">todo mal</span>
+                    <input type="text" name="name" class="form-el__input" required value="Sergio" />
+                    <span class="form-el__error js-input-error"></span>
                 </div>
-                <div class="signup__input form-el">
+                <div class="signup__input form-el js-form-el">
                     <label class="form-el__label">Surname:</label>
-                    <input type="text" name="Surname" class="form-el__input" required />
+                    <input type="text" name="surname" class="form-el__input" required value="Ruiz" />
+                    <span class="form-el__error js-input-error"></span>
                 </div>
-                <div class="signup__input form-el">
+                <div class="signup__input form-el js-form-el" data-type="countryList">
                     <label class="form-el__label">Country:</label>
                     <div class="form-el__select-wrapper">
-                        <select class="form-el__select" required name="country"></select>
+                        <select class="form-el__select js-country-list" required name="country"></select>
                     </div>
+                    <span class="form-el__error js-input-error"></span>
                 </div>
-                <div class="signup__input form-el">
+                <div class="signup__input form-el js-form-el">
                     <label class="form-el__label">Birthday:</label>
-                    <input type="text" name="birthday" class="form-el__input" required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" placeholder="dd/mm/yyyy" />
+                    <input type="text" name="birthday" class="form-el__input" required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" placeholder="dd/mm/yyyy" title="dd/mm/yyyy"/>
+                    <span class="form-el__error js-input-error"></span>
                 </div>
-                <input type="submit" value="Save" class="signup__input btn" disabled />
-                <span class="msg">Hello {name} from {Country}. on {day} of {month} you will have {years}</span>
+                <input type="submit" value="Save" class="signup__input btn js-submit" disabled />
+                <span class="msg msg--hidden js-msg">Hello {name} from {Country}. on {day} of {month} you will have {years}</span>
             </form>
             <div class="card__col user-list">
                 <div class="user-list__header user-list__row">
@@ -39,12 +42,7 @@
                     <span class="user-list__cel">Country</span>
                     <span class="user-list__cel">Birthday</span>
                 </div>
-                <div class="user-list__container">
-                    <div class="user-list__entry">
-                        <span class="user-list__cel user-list__cel--main">Sergio Ruiz</span>
-                        <span class="user-list__cel">Argentina</span>
-                        <span class="user-list__cel">19/10/1984</span>
-                    </div>
+                <div class="user-list__container js-user-list">
                 </div>
             </div>
             <div class="card__footer"><strong>Sergio Ruiz</strong></div>
