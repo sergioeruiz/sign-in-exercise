@@ -22,6 +22,7 @@
             "ignoreComments": true
           }
         ],
+        "no-void": 0,
   },
   "plugins": ["html", "markdown"]
 }

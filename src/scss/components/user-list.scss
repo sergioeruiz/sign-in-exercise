@@ -1,4 +1,27 @@
 .user-list {
+    $p : &;
+
+    @keyframes user-list__new-entry {
+        0%,
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes user-list__moving-old {
+        0% {
+            transform: translateY(-100%);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
     border: 1px solid $bg_border;
     border-radius: $border-radius;
     min-height: 410px;
@@ -53,6 +76,14 @@
             box-shadow: 0 0 0 0 rgba(0, 0, 0, .05);
             color: $highlight_txt;
             cursor: pointer;
+        }
+
+        &--new {
+            animation: user-list__new-entry 600ms ease-in-out;
+        }
+
+        &--new ~ #{$p}__entry {
+            animation: user-list__moving-old 300ms ease-in-out;
         }
     }
 }

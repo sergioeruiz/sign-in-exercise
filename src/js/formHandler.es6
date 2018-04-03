@@ -3,6 +3,30 @@ import Log from './userLogHandler.es6';
 
 export default class FormHandler {
     /**
+     * Message class for hiding it
+     * @constant
+     * @type {String}
+     */
+    static get MESSAGE_HIDDEN_CLASS() {
+        return 'msg--hidden';
+    }
+    /**
+     * New entry class used for animation
+     * @constant
+     * @type {String}
+     */
+    static get NEW_ENTRY_CLASS() {
+        return 'user-list__entry--new';
+    }
+    /**
+     * New entry selector
+     * @constant
+     * @type {String}
+     */
+    static get NEW_ENTRY_SELECTOR() {
+        return `.${FormHandler.NEW_ENTRY_CLASS}`;
+    }
+    /**
      * User list container selector
      * @constant
      * @type {String}
@@ -41,14 +65,6 @@ export default class FormHandler {
      */
     static get COUNTRY_API_URL() {
         return 'https://restcountries.eu/rest/v2/all';
-    }
-    /**
-     * Message class for hiding it
-     * @constant
-     * @type {String}
-     */
-    static get MESSAGE_HIDDEN_CLASS() {
-        return 'msg--hidden';
     }
     /**
      * Month name array list
@@ -147,11 +163,23 @@ export default class FormHandler {
         const data = this.getFormData();
 
         this.displayMessage(data);
-        this.addLog(data);
+        this.removeNewEntryClass();
+        this.addLog(data, true);
         this.log.userList = data;
         this.form.reset();
 
         ev.preventDefault();
+    }
+
+    /**
+     * Removes the new entry class to allow a new animation on a new submit
+     */
+    removeNewEntryClass() {
+        const newEntries = this.listContainer.querySelectorAll(FormHandler.NEW_ENTRY_SELECTOR);
+        newEntries.forEach((el) => {
+            el.classList.remove(FormHandler.NEW_ENTRY_CLASS);
+            void el.offsetWidth; // Force reflow for re-starting the animation. Otherwise it won't work
+        });
     }
 
     /**
@@ -213,7 +241,7 @@ export default class FormHandler {
      * Adds a new entry to the user list, and adds an event listener to the element
      * @param {Object} data - user data
      */
-    addLog(data = {}) {
+    addLog(data = {}, newEntry = false) {
         const entryHTML = document.createElement('div');
         entryHTML.innerHTML = `<div class="user-list__entry">` +
             `<span class="user-list__cel user-list__cel--main">${data.name} ${data.lastname}</span>` +
@@ -221,6 +249,10 @@ export default class FormHandler {
             `<span class="user-list__cel">${data.birthdayString}</span>` +
             `</div>`;
         const addedEntry = this.listContainer.insertBefore(entryHTML.firstChild, this.listContainer.firstChild);
+
+        if (newEntry) {
+            addedEntry.classList.add(FormHandler.NEW_ENTRY_CLASS);
+        }
         addedEntry.addEventListener('click', this.displayMessage.bind(this, data));
     }
 
